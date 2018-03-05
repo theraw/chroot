@@ -1,15 +1,17 @@
 #!/bin/bash
+# =====================================
+export ssh_group=sshjails
+export sftp_group=sftpjails
+export JAIL_PATH=/home/userfs
+export USER_BIN=/bin/bash # If you want to allow user to login in ssh
+#export USER_BIN=/bin/false # If you won't to allow user to login in ssh
+# =====================================
 
 # =======================================================
 # add "prisoner" in the jail you created before !!
 # USAGE : ./add-user.sh <username> <password> <type>
 # Type 1 : sftp jailed user ; Type 2 ssh jailed user
 # A password will be auto-generated with pwgen (sudo apt install pwgen)
-# =======================================================
-
-# =======================================================
-# Set your jail path wherever you want.
-JAIL_PATH=/home/userfs/
 # =======================================================
 
 # =======================================================
@@ -32,9 +34,9 @@ if [[ "x$PASS" == "x" ]]; then
 fi
 # =======================================================
 if [[ $TYPE == 1 ]]; then
-  GROUP=sftpjailed;
+  GROUP=$sftp_group;
 elif [[ $TYPE == 2 ]]; then
-  GROUP=sshjailed;
+  GROUP=$ssh_group;
 else
   echo "You have to select jail type"
   echo "1 : sftp jailed user | 2 : ssh jailed user"
@@ -49,15 +51,12 @@ if [ $? -eq 0 ]; then
   exit;
 fi
 # =======================================================
-# All the steps below will have to be done for all users we want to chroot
-# Create new user and add it to the sftp/sshjailed group
-# We tell useradd the home directory is /home/$USER because, at login, 
-# the user will already be in the jail and this will be the right path at this moment ;)
-useradd -G $GROUP -d /home/$USER -s /bin/bash -p $(openssl passwd -1 $PASS) $USER && \
+useradd -G $GROUP -d /home/$USER -s $USER_BIN -p $(openssl passwd -1 $PASS) $USER && \
 echo "Password : ${PASS}"
 # =======================================================
 
 mkdir -p $JAIL_PATH/home/$USER
+chown -R $USER:$USER $JAIL_PATH/home/$USER
 # =======================================================
 # create or update minimal '/etc/passwd' file for our chrooted environment
 cat /etc/passwd | grep $USER > $JAIL_PATH/etc/passwd
