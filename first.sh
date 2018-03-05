@@ -1,4 +1,9 @@
 # =====================================
+export ssh_group=sshjails
+export sftp_group=sftpjails
+export JAIL_PATH=/home/userfs
+# =====================================
+
 # =====================================
 if [[ $1 == "debug" ]]; then
   echo "Entering debugging mode (set -x)"
@@ -9,10 +14,6 @@ fi
 # =====================================
 # =====================================
 APPS="bash cat clear cp touch grep ls mkdir ping ps rm sed tar env find git htop nano php rsync scp sftp top unzip vi whoami zip"
-# =====================================
-
-# =====================================
-JAIL_PATH=/home/userfs
 # =====================================
 
 # =====================================
@@ -78,11 +79,11 @@ cp /lib/x86_64-linux-gnu/libnss_* $JAIL_PATH/lib/x86_64-linux-gnu/
 # =====================================
 sed -i 's/Subsystem sftp \/usr\/lib\/openssh\/sftp-server/Subsystem sftp internal-sftp/g' /etc/ssh/sshd_config 
 cat <<- EOF >> /etc/ssh/sshd_config
-Match group sshjails
+Match group ${ssh_group}
   ChrootDirectory ${JAIL_PATH}/
   X11Forwarding no
   AllowTcpForwarding no
-Match group sftpjails
+Match group ${sftp_group}
   ChrootDirectory ${JAIL_PATH}/home/%u
   X11Forwarding no
   AllowTcpForwarding no
@@ -92,6 +93,6 @@ EOF
 
 # =====================================
 service ssh restart
-groupadd sshjails
-groupadd sftpjails
+groupadd $ssh_group
+groupadd $sftp_group
 # =====================================
