@@ -8,7 +8,7 @@ fi
 
 # =====================================
 # =====================================
-APPS="bash cat clear cp touch grep ls mkdir ping ps rm sed tar env find git htop nano php rsync scp	sftp top unzip vi whoami zip"
+APPS="bash cat clear cp touch grep ls mkdir ping ps rm sed tar env find git htop nano php rsync scp sftp top unzip vi whoami zip"
 # =====================================
 
 # =====================================
@@ -18,7 +18,7 @@ JAIL_PATH=/home/userfs
 # =====================================
 # FS
 mkdir $JAIL_PATH
-mkdir -p $JAIL_PATH/{dev,etc,lib,lib64,usr/bin,bin,usr/share}
+mkdir -p $JAIL_PATH/{bin,dev,lib,mnt,proc,run,srv,sys,usr/bin,usr/share,etc,lib64,opt,sbin,tmp,var}
 # =====================================
 
 # =====================================
@@ -57,14 +57,9 @@ popd
 # =====================================
 
 # =====================================
-# to avoid manual copy, the l2chroot script can be used:
 wget -O /usr/local/sbin/l2chroot http://www.cyberciti.biz/files/lighttpd/l2chroot.txt
 #cp ./l2chroot /usr/local/sbin/
 chmod 744 /usr/local/sbin/l2chroot
-# =====================================
-
-# =====================================
-# Edit l2chroot script and change the BASE="/webroot" variable to BASE="$JAIL_PATH"
 sed -i "s@/webroot@${JAIL_PATH}@" /usr/local/sbin/l2chroot
 # =====================================
 
@@ -75,15 +70,13 @@ for ii in $APPS; do which $ii && l2chroot $(which $ii); done
 
 # =====================================
 # Additional dependencies for displaying the name of our user in its prompt
-mkdir -p /home/www/lib/x86_64-linux-gnu/
+mkdir -p $JAIL_PATH/lib/x86_64-linux-gnu/
 cp /lib/x86_64-linux-gnu/libnsl.so.1 $JAIL_PATH/lib/x86_64-linux-gnu/
 cp /lib/x86_64-linux-gnu/libnss_* $JAIL_PATH/lib/x86_64-linux-gnu/
 # =====================================
 
 
 # =====================================
-# Configure sshd to chroot the users
-# Add the followind lines in '/etc/ssh/sshd_config'
 sed -i 's/Subsystem sftp \/usr\/lib\/openssh\/sftp-server/Subsystem sftp internal-sftp/g' /etc/ssh/sshd_config 
 cat <<- EOF >> /etc/ssh/sshd_config
 Match group sshjails
@@ -99,11 +92,7 @@ EOF
 # =====================================
 
 # =====================================
-# Don't forget to restart ssh
 service ssh restart
-# =====================================
-
-# =====================================
 groupadd sshjails
 groupadd sftpjails
 # =====================================
