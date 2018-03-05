@@ -58,7 +58,7 @@ popd
 # =====================================
 
 # =====================================
-wget -O /usr/local/sbin/l2chroot http://www.cyberciti.biz/files/lighttpd/l2chroot.txt
+curl -s http://www.cyberciti.biz/files/lighttpd/l2chroot.txt > /usr/local/sbin/l2chroot
 #cp ./l2chroot /usr/local/sbin/
 chmod 744 /usr/local/sbin/l2chroot
 sed -i "s@/webroot@${JAIL_PATH}@" /usr/local/sbin/l2chroot
