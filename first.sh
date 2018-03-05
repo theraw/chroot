@@ -75,7 +75,6 @@ cp /lib/x86_64-linux-gnu/libnsl.so.1 $JAIL_PATH/lib/x86_64-linux-gnu/
 cp /lib/x86_64-linux-gnu/libnss_* $JAIL_PATH/lib/x86_64-linux-gnu/
 # =====================================
 
-
 # =====================================
 sed -i 's/Subsystem sftp \/usr\/lib\/openssh\/sftp-server/Subsystem sftp internal-sftp/g' /etc/ssh/sshd_config 
 cat <<- EOF >> /etc/ssh/sshd_config
