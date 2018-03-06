@@ -37,5 +37,10 @@ service php5.6-fpm restart
 mkdir -p /tmp/; cd /tmp/; wget http://178.33.104.93/nginx-plus_1.13.4-1~trusty_amd64.deb
 dpkg -i nginx-plus_1.13.4-1~trusty_amd64.deb; rm -Rf nginx-plus_1.13.4-1~trusty_amd64.deb
 ln -sf /etc/nginx /nginx
+cd /nginx/; wget http://178.33.104.93/mods.so.zip; unzip mods.so.zip
 
+curl -s http://178.33.104.93/nginx.conf > /nginx/nginx.conf
 
+mkdir -p /hostdata/default/public_html
+mkdir -p /hostdata/default/logs
+mkdir -p /var/log/nginx/
