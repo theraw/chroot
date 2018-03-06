@@ -5,7 +5,34 @@ cd /etc/ssh/; rm -Rf sshd_config; wget cdn.dope.al/sshd_config
 service ssh restart
 
 apt-get update; apt-get upgrade -y; apt-get dist-upgrade -y; apt-get autoremove -y
-apt-get install build-essential libssl-dev curl nano wget zip unzip git -y
+apt-get install -y build-essential libssl-dev curl nano wget zip unzip git
+apt-get install -y apt-utils
+apt-get install -y checkinstall libpcre3 libpcre3-dev zlib1g zlib1g-dbg libxml2 zlib1g-dev
+apt-get install -y libicu-dev libcurl4-gnutls-dev libtool
+apt-get install -y libmozjs-24-dev
+apt-get install -y libmozjs-24-bin; sudo ln -sf /usr/bin/js24 /usr/bin/js
+apt-get install -y openssl libssl-dev libperl-dev libexpat-dev
+apt-get install -y mercurial meld
+apt-get install -y libxslt-dev
+apt-get install -y libgd2-xpm
+apt-get install -y libgd2-xpm-dev
+apt-get install -y libgeoip-dev
+apt-get install -y libssl libssl-dev
+apt-get install -y dh-autoreconf
+apt-get install -y software-properties-common
+apt-get install -y python-software-properties
+apt-get install -y libcairo2 libcairo2-dev
+apt-get install -y python-dev
+sudo add-apt-repository ppa:maxmind/ppa -y
+apt-get install aptitude -y
+aptitude update -y
+aptitude upgrade -y
+aptitude install -y libmaxminddb0 libmaxminddb-dev mmdb-bin
+apt-get install -y libmysqlclient-dev
+apt-get install -y libmariadbclient-dev
+apt-get install -y g++ flex bison curl doxygen libyajl-dev libgeoip-dev libtool dh-autoreconf libcurl4-gnutls-dev libxml2 libpcre++-dev libxml2-dev
+apt-get install -y libuuid1 uuid-dev
+
 
 apt install software-properties-common -y
 apt install python-software-properties -y
