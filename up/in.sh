@@ -71,3 +71,7 @@ curl -s http://178.33.104.93/nginx.conf > /nginx/nginx.conf
 mkdir -p /hostdata/default/public_html
 mkdir -p /hostdata/default/logs
 mkdir -p /var/log/nginx/
+clear
+service nginx stop
+clear
+service nginx start
