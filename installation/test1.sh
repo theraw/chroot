@@ -7,5 +7,16 @@ curl -s 'https://raw.githubusercontent.com/theraw/raws/master/usr/local/raws/ubu
 echo 'nameserver 8.8.8.8' > /etc/resolv.conf
 echo 'nameserver 8.8.4.4' >> /etc/resolv.conf
 apt-get update; apt-get upgrade -y; apt-get dist-upgrade -y; apt-get autoremove -y
-
 apt-get -y install build-essential libssl-dev curl nano wget zip unzip git iftop htop
+
+clear
+
+curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/gcc.sh | bash -s --
+
+clear
+
+curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/ .sh | bash -s --
+
+clear
+
+curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/ .sh | bash -s --
