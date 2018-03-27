@@ -44,7 +44,6 @@ clear
 --with-pcre=/opt/nginx/helpers/pcre \
 --with-pcre-jit \
 --with-zlib=/opt/nginx/helpers/zlib \
---with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
---with-ld-opt='-Wl,-z,relro -Wl,--as-needed' \
+--with-ld-opt="-Wl,-rpath,/usr/local/lib/" \
 --add-module=/opt/nginx/mods/ngx_brotli \
 --add-module=/opt/nginx/mods/ngx_slowfs_cache
