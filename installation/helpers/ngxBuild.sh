@@ -46,4 +46,5 @@ clear
 --with-zlib=/opt/nginx/helpers/zlib \
 --with-ld-opt="-Wl,-rpath,/usr/local/lib/" \
 --add-module=/opt/nginx/mods/ngx_brotli \
---add-module=/opt/nginx/mods/ngx_slowfs_cache
+--add-module=/opt/nginx/mods/ngx_slowfs_cache \
+--add-module=/opt/nginx/mods/ModSecurity-nginx
