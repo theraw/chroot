@@ -6,7 +6,6 @@ rm -Rf nginx-1.13.9.tar.gz; mv nginx-1.13.9 nginx; touch nginx/version.txt; echo
 
 mkdir -p /opt/nginx/mods/; cd /opt/nginx/mods
 git clone https://github.com/eustas/ngx_brotli.git
-git clone https://github.com/FRiCKLE/ngx_slowfs_cache.git
 cd /opt/nginx/mods/ngx_brotli && git submodule update --init && cd /opt/nginx/source/nginx
 
 
@@ -84,13 +83,13 @@ cd /nginx/; rm -Rf html/; mkdir -p /nginx/conf.d; rm -Rf nginx.conf; rm -Rf ngin
 wget https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/nginx.conf
 mkdir -p /nginx/live/
 cd /nginx/live/
-wget https://raw.githubusercontent.com/systemroot/my-nginx/master/nginx-as-firewall/static/default
+wget https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/default
 
 mkdir -p /hostdata/default/public_html
 mkdir -p /hostdata/default/logs
 mkdir -p /hostdata/default/cache
 cd /hostdata/default/public_html/
-wget https://raw.githubusercontent.com/systemroot/my-nginx/master/hostdata/default/index.html
+wget https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/index.html
 sudo update-rc.d nginx defaults
-
+clear
 
