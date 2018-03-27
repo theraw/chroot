@@ -15,8 +15,12 @@ curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/help
 
 clear
 
-curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/ .sh | bash -s --
+curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/nginx.sh | bash -s --
 
 clear
 
-curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/ .sh | bash -s --
+curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/php56.sh | bash -s --
+
+clear
+
+curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/php7.sh | bash -s --
