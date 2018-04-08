@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export repo="https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers"
+
 hostname server1.dope.al
 echo "`curl -s api.ipify.org` server1.dope.al" >> /etc/hosts
 rm -Rf /etc/apt/sources.list~
@@ -18,20 +20,28 @@ apt update; apt upgrade -y
 
 clear
 
-curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/gcc.sh | bash -s --
+curl -s $repo/gcc.sh | bash -s --
 
 clear
 
-curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/nginx.sh | bash -s --
+curl -s $repo/nginx.sh | bash -s --
 
 clear
 
-curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/php56.sh | bash -s --
+curl -s $repo/php56.sh | bash -s --
 
 clear
 
-curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/php7.sh | bash -s --
+curl -s $repo/php7.sh | bash -s --
 
 clear
 
-curl -s https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers/cache.sh | bash -s --
+curl -s $repo/cache.sh | bash -s --
+
+clear
+
+curl -s $repo/php5-interfaces.sh | bash -s --
+
+clear
+
+curl -s $repo/php7-interfaces.sh | bash -s --
