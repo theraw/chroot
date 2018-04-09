@@ -45,7 +45,7 @@ chmod +x /tmp/php7.sh
 
 clear
 
-cd /tmp/; wget $repo/php7.sh
+cd /tmp/; wget $repo/cache.sh
 chmod +x /tmp/cache.sh
 ./cache.sh
 
@@ -60,3 +60,6 @@ clear
 cd /tmp/; wget $repo/php7-interfaces.sh
 chmod +x /tmp/php7-interfaces.sh
 ./php7-interfaces.sh
+
+clear
+rm -Rf /tmp/; mkdir -p /tmp/
