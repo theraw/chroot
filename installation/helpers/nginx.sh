@@ -6,6 +6,7 @@ rm -Rf nginx-1.13.9.tar.gz; mv nginx-1.13.9 nginx; touch nginx/version.txt; echo
 
 mkdir -p /opt/nginx/mods/; cd /opt/nginx/mods
 git clone https://github.com/eustas/ngx_brotli.git
+git clone https://github.com/SpiderLabs/ModSecurity-nginx.git
 cd /opt/nginx/mods/ngx_brotli && git submodule update --init && cd /opt/nginx/source/nginx
 
 
