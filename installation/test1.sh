@@ -2,6 +2,7 @@
 
 export repo="https://raw.githubusercontent.com/theraw/chroot/master/installation/helpers"
 
+mkdir -p /tmp/
 hostname server1.dope.al
 echo "`curl -s api.ipify.org` server1.dope.al" >> /etc/hosts
 rm -Rf /etc/apt/sources.list~
@@ -20,28 +21,42 @@ apt update; apt upgrade -y
 
 clear
 
-curl -s $repo/gcc.sh | bash -s --
+cd /tmp/; wget $repo/gcc.sh
+chmod +x /tmp/gcc.sh
+./gcc.sh
 
 clear
 
-curl -s $repo/nginx.sh | bash -s --
+cd /tmp/; wget $repo/nginx.sh
+chmod +x /tmp/nginx.sh
+./nginx.sh
 
 clear
 
-curl -s $repo/php56.sh | bash -s --
+cd /tmp/; wget $repo/php56.sh
+chmod +x /tmp/php56.sh
+./php56.sh
 
 clear
 
-curl -s $repo/php7.sh | bash -s --
+cd /tmp/; wget $repo/php7.sh
+chmod +x /tmp/php7.sh
+./php7.sh
 
 clear
 
-curl -s $repo/cache.sh | bash -s --
+cd /tmp/; wget $repo/php7.sh
+chmod +x /tmp/cache.sh
+./cache.sh
 
 clear
 
-curl -s $repo/php5-interfaces.sh | bash -s --
+cd /tmp/; wget $repo/php5-interfaces.sh
+chmod +x /tmp/php5-interfaces.sh
+./php5-interfaces.sh
 
 clear
 
-curl -s $repo/php7-interfaces.sh | bash -s --
+cd /tmp/; wget $repo/php7-interfaces.sh
+chmod +x /tmp/php7-interfaces.sh
+./php7-interfaces.sh
