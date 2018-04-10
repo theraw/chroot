@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export CDN="cdn.dope.al/nginx/php"
+
 # 5.6
 apt install -y php5.6-fpm
 apt install -y php5.6 php5.6-common php5.6-cgi php5.6-cli php5.6-dev php5.6-curl
