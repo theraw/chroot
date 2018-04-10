@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export CDN="cdn.dope.al/nginx/php"
+mkdir -p /var/php/5.6/pools/
 
 # 5.6
 apt install -y php5.6-fpm
