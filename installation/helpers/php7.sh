@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export CDN="cdn.dope.al/nginx/php"
+mkdir -p /var/php/7.0/pools/
 
 # 7.0
 apt install -y php7.0 php7.0-fpm
