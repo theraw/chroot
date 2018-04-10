@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export CDN="cdn.dope.al/nginx/php"
+
 # 7.0
 apt install -y php7.0 php7.0-fpm
 apt install -y php7.0-common php7.0-cgi php7.0-cli php7.0-phpdbg php7.0-dev php7.0-curl 
