@@ -51,7 +51,7 @@ if [ $? -eq 0 ]; then
   exit;
 fi
 # =======================================================
-useradd -G $GROUP -d /home/$USER -s $USER_BIN -p $(openssl passwd -1 $PASS) $USER && \
+useradd -G $GROUP -d $JAIL_PATH/home/$USER -s $USER_BIN -p $(openssl passwd -1 $PASS) $USER && \
 echo "Password : ${PASS}"
 # =======================================================
 
