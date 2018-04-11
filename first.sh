@@ -19,7 +19,7 @@ APPS="bash cat clear cp touch grep ls mkdir ping ps rm sed tar env find git htop
 # =====================================
 # FS
 mkdir $JAIL_PATH
-mkdir -p $JAIL_PATH/{bin,dev,lib,mnt,proc,run,srv,sys,usr/bin,usr/share,etc,lib64,opt,sbin,tmp,var}
+mkdir -p $JAIL_PATH/{home,bin,dev,lib,mnt,proc,run,srv,sys,usr/bin,usr/share,etc,lib64,opt,sbin,tmp,var}
 # =====================================
 
 # =====================================
