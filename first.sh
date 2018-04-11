@@ -1,7 +1,7 @@
 # =====================================
 export ssh_group=sshjails
 export sftp_group=sftpjails
-export JAIL_PATH=/home/userfs
+export JAIL_PATH=/home/kvm
 # =====================================
 
 # =====================================
