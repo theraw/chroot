@@ -2,7 +2,7 @@
 # =====================================
 export ssh_group=sshjails
 export sftp_group=sftpjails
-export JAIL_PATH=/home/userfs
+export JAIL_PATH=/home/kvm
 #export USER_BIN=/bin/bash # If you want to allow user to login in ssh
 export USER_BIN=/bin/false # If you won't to allow user to login in ssh
 # =====================================
